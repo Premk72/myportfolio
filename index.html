@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prem Kumar - DevOps & Cloud Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .section-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .skill-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 8px;
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+        }
+        
+        .navbar-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-link:hover::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-white">PK</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="navbar-link text-white hover:text-blue-200 text-sm font-medium">Home</a>
+                    <a href="#about" class="navbar-link text-white hover:text-blue-200 text-sm font-medium">About</a>
+                    <a href="#skills" class="navbar-link text-white hover:text-blue-200 text-sm font-medium">Skills</a>
+                    <a href="#experience" class="navbar-link text-white hover:text-blue-200 text-sm font-medium">Experience</a>
+                    <a href="#education" class="navbar-link text-white hover:text-blue-200 text-sm font-medium">Education</a>
+                    <a href="#projects" class="navbar-link text-white hover:text-blue-200 text-sm font-medium">Projects</a>
+                    <a href="#contact" class="navbar-link text-white hover:text-blue-200 text-sm font-medium">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white bg-opacity-95">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-900 font-medium">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-900 font-medium">About</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-900 font-medium">Skills</a>
+                <a href="#experience" class="block px-3 py-2 text-gray-900 font-medium">Experience</a>
+                <a href="#education" class="block px-3 py-2 text-gray-900 font-medium">Education</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-900 font-medium">Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-900 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute top-0 right-0 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animation-delay-2000 animate-blob"></div>
+            <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animation-delay-4000 animate-blob"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto fade-in">
+            <div class="float-animation mb-8">
+                <i class="fas fa-cloud text-6xl md:text-8xl text-blue-200"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                Prem Kumar
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-4 text-white/90">DevOps & Cloud Engineer</h2>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-2xl mx-auto">
+                DevOps & Cloud Engineer • AWS • Terraform • Kubernetes • Data Platforms (Airflow / Snowflake)
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#projects" class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-100 transition-colors shadow-lg">
+                    View Projects
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-gray-900 transition-colors">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center fade-in">
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Versatile DevOps & Cloud Engineer with 7 years of hands-on experience supporting cloud data platforms, CI/CD automation, and infrastructure modernization. Strong background in AWS, multi-cloud, Terraform, Python, Kubernetes, and CI/CD pipelines—with a recent focus on data pipeline orchestration, environment automation, and operational reliability for analytics and reporting platforms.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Experienced in troubleshooting distributed systems, automating ETL/ELT deployments, enforcing DevSecOps controls, and optimizing cloud cost/performance in regulated environments. Known for partnering closely with data engineers, analysts, and IT stakeholders to deliver reliable, compliant, and scalable platforms.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+    <div class="text-center p-4 bg-white rounded-xl shadow-md">
+        <div class="text-2xl font-bold text-blue-600 mb-1">7+</div>
+        <div class="text-sm text-gray-600">Years Experience</div>
+    </div>
+    <div class="text-center p-4 bg-white rounded-xl shadow-md">
+        <div class="text-2xl font-bold text-purple-600 mb-1">Multi-Cloud</div>
+        <div class="text-sm text-gray-600">AWS • Azure • GCP</div>
+    </div>
+    <div class="text-center p-4 bg-white rounded-xl shadow-md">
+        <div class="text-2xl font-bold text-green-600 mb-1">DevSecOps</div>
+        <div class="text-sm text-gray-600">Security + Reliability</div>
+    </div>
+</div>
+</div>
+</div>
+                </div>
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-1 rounded-2xl">
+                        <div class="bg-white p-6 rounded-xl">
+                            <div class="flex items-center justify-center w-32 h-32 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mx-auto mb-6">
+                                <i class="fas fa-user-tie text-4xl text-blue-600"></i>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Prem Kumar</h3>
+                                <p class="text-gray-600">DevOps & Cloud Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Technical Skills</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            
+            <!-- Cloud Platforms -->
+            <div class="mb-16 fade-in">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-8 text-center">Cloud Platforms</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-cloud text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">AWS</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-azure text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Azure</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-google-cloud text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">GCP</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-server text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Kubernetes</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DevOps Tools -->
+            <div class="mb-16 fade-in">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-8 text-center">DevOps Tools</h3>
+                <div class="grid md:grid-cols-5 gap-6">
+                    <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-git-alt text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Git</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-green-500" style="width: 98%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-docker text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Docker</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-orange-500" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-cubes text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Terraform</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-red-500" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-jenkins text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Jenkins</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-blue-500" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code-branch text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">CI/CD</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-purple-500" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programming & Scripting -->
+            <div class="fade-in">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-8 text-center">Programming & Languages</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="card-hover bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Python</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-gray-800" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-terminal text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Bash</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-yellow-500" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-snowflake text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Snowflake</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-blue-600" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-database text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">SQL</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-green-600" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Professional Experience</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 fade-in">
+                <!-- Timeline Left -->
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-3"></div>
+                        <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                            <div class="flex items-center mb-3">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-building text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 text-lg">DevOps Engineer</h3>
+                                    <p class="text-blue-600 font-medium">Medpro</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">Jan 2025 - Oct 2025</p>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Designed and maintained CI/CD pipelines for SQL scripts, Python jobs, and Airflow DAGs with automated promotion across dev/test/prod.
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Automated AWS + EKS provisioning using Terraform for consistent, repeatable environments (networking, compute, storage, Kubernetes).
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Implemented observability with Prometheus/Grafana and alerts for DAG failures, pipeline latency, and platform health.
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Reduced repeated Airflow failures by adding automated IAM + Snowflake RBAC validation checks in deployment workflows.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-3"></div>
+                        <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                            <div class="flex items-center mb-3">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-rocket text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 text-lg">Associate Data Engineer</h3>
+                                    <p class="text-green-600 font-medium">Datics Inc</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">Sep 2023 - Dec 2024</p>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Automated deployment frameworks for ETL/ELT pipelines (SQL scripts, metadata updates, Airflow DAG versioning).
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Supported Snowflake by automating role assignments, warehouse provisioning, and environment configs using Terraform + Python.
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Built CI/CD pipelines with GitHub Actions and Jenkins including linting, testing, and security scans.
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Improved Snowflake performance during peak hours by tuning warehouse scaling policies and query concurrency.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Right -->
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-3 ml-auto"></div>
+                        <div class="bg-white p-6 rounded-xl shadow-lg card-hover ml-auto">
+                            <div class="flex items-center mb-3 justify-end">
+                                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-laptop-code text-white"></i>
+                                </div>
+                                <div class="text-right">
+                                    <h3 class="font-semibold text-gray-800 text-lg">Cloud DevOps Engineer</h3>
+                                    <p class="text-purple-600 font-medium">Excelra (Hyderabad, India)</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-right">Nov 2018 - Jun 2022</p>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start justify-end">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Developed reusable Terraform modules to standardize infrastructure across environments and regions.
+                                </li>
+                                <li class="flex items-start justify-end">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Built CI/CD pipelines for application and data workloads with automated rollback and safe production releases.
+                                </li>
+                                <li class="flex items-start justify-end">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Implemented centralized logging and observability using ELK/OpenSearch to speed up troubleshooting for data processing failures.
+                                </li>
+                                <li class="flex items-start justify-end">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Automated backup/restore and DR processes, aligning with audit and governance requirements.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-3 ml-auto"></div>
+                        <div class="bg-white p-6 rounded-xl shadow-lg card-hover ml-auto">
+                            <div class="flex items-center mb-3 justify-end">
+                                <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-graduation-cap text-white"></i>
+                                </div>
+                                <div class="text-right">
+                                    <h3 class="font-semibold text-gray-800 text-lg">Build and Release Engineer</h3>
+                                    <p class="text-orange-600 font-medium">Cigniti Technologies (Hyderabad, India)</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4 text-right">Aug 2017 - Oct 2018</p>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start justify-end">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Managed AWS & Azure environments and supported CI/CD pipelines using Azure DevOps (TFS).
+                                </li>
+                                <li class="flex items-start justify-end">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Automated provisioning and deployment tasks using Python and Bash to improve release reliability.
+                                </li>
+                                <li class="flex items-start justify-end">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    Implemented IAM/RBAC and encryption best practices to meet security and audit expectations.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Education & Certifications Section -->
+    <section id="education" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Education & Certifications</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 fade-in">
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-graduation-cap text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Education</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li>
+                            <div class="font-semibold">University of New Hampshire</div>
+                            <div class="text-sm text-gray-600">M.S. Business Statistics • 2023 • Durham, NH</div>
+                        </li>
+                        <li>
+                            <div class="font-semibold">Jawaharlal Nehru Technical University</div>
+                            <div class="text-sm text-gray-600">B.E. Mechanical Engineering • 2017 • India</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-certificate text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Certifications</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li>
+                            <div class="font-semibold">AWS Certified Solutions Architect – Associate</div>
+                            <div class="text-sm text-gray-600">Cloud architecture • Security • Networking • Reliability</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+                <p class="text-lg text-gray-600 mt-4">Real-world applications of DevOps and Cloud Engineering</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
+                <!-- Project 1 -->
+                <div class="project-card rounded-2xl overflow-hidden shadow-xl card-hover">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold">Airflow on EKS Reliability & Monitoring</h3>
+                            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Supported Apache Airflow deployments on EKS with logging, alerting, and failure notifications to improve reliability.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">AWS</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Terraform</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Kubernetes</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">CI/CD</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>Improved SLA reliability</span>
+                            <a href="#" class="text-blue-600 hover:underline font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card rounded-2xl overflow-hidden shadow-xl card-hover">
+                    <div class="bg-gradient-to-r from-green-500 to-blue-600 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold">CI/CD for Data Workflows</h3>
+                            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Built CI/CD pipelines for SQL + Python jobs + Airflow DAGs with automated environment promotions and security checks.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">GitHub Actions</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-xs rounded-full">Terraform</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Multi-Cloud</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Jenkins</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>Dev/Test/Prod promotions</span>
+                            <a href="#" class="text-blue-600 hover:underline font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card rounded-2xl overflow-hidden shadow-xl card-hover">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-600 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold">Snowflake RBAC & Cost Governance Automation</h3>
+                            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Automated Snowflake role assignments, warehouse provisioning, and usage monitoring to optimize performance and cost.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Prometheus</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Grafana</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-xs rounded-full">ELK Stack</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">CloudWatch</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>Cost & performance tuned</span>
+                            <a href="#" class="text-blue-600 hover:underline font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card rounded-2xl overflow-hidden shadow-xl card-hover md:col-span-2 lg:col-span-1">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-600 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold">Terraform Environment Automation</h3>
+                            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Provisioned AWS networking, compute, storage, and EKS resources using Terraform for consistent environments.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Terraform</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">EKS</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">VPC</span>
+                            <span class="px-3 py-1 bg-teal-100 text-teal-800 text-xs rounded-full">IAM</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">S3</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>Reusable IaC modules</span>
+                            <a href="#" class="text-blue-600 hover:underline font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card rounded-2xl overflow-hidden shadow-xl card-hover">
+                    <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold">DevSecOps Controls in CI/CD</h3>
+                            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Integrated secrets management, RBAC controls, encryption standards, and security scans into delivery pipelines.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-xs rounded-full">RBAC</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Secrets Mgmt</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Terraform</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">Encryption</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>Security + compliance</span>
+                            <a href="#" class="text-blue-600 hover:underline font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card rounded-2xl overflow-hidden shadow-xl card-hover">
+                    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold">Centralized Logging & Runbooks</h3>
+                            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Implemented ELK/OpenSearch logging and authored runbooks to speed incident response and troubleshooting.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Grafana</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">OpenSearch</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Prometheus</span>
+                            <span class="px-3 py-1 bg-teal-100 text-teal-800 text-xs rounded-full">Runbooks</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>Faster incident resolution</span>
+                            <a href="#" class="text-blue-600 hover:underline font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Let's Work Together</h2>
+                <div class="w-24 h-1 bg-white bg-opacity-50 mx-auto mb-8"></div>
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+                    Let’s connect if you need reliable CI/CD, scalable cloud infrastructure, or automation for data platforms and analytics workloads.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 fade-in">
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-semibold text-white mb-4">Get In Touch</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center text-blue-100">
+                                <i class="fas fa-envelope text-2xl mr-4"></i>
+                                <div>
+                                    <p class="font-medium">Email</p>
+                                    <a href="mailto:premkrb11@gmail.com" class="hover:text-white transition-colors">premkrb11@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center text-blue-100">
+                                <i class="fas fa-phone text-2xl mr-4"></i>
+                                <div>
+                                    <p class="font-medium">Phone</p>
+                                    <a href="tel:+16036060063" class="hover:text-white transition-colors">+1 (603) 606-0063</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center text-blue-100">
+                                <i class="fas fa-map-marker-alt text-2xl mr-4"></i>
+                                <div>
+                                    <p class="font-medium">Location</p>
+                                    <p class="hover:text-white transition-colors">Boston, MA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-semibold text-white mb-4">Connect With Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-white hover:bg-opacity-30 transition-colors" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-white hover:bg-opacity-30 transition-colors" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-white font-medium mb-2">Full Name</label>
+                            <input type="text" name="name" required 
+                                   class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-white font-medium mb-2">Email Address</label>
+                            <input type="email" name="email" required 
+                                   class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-white font-medium mb-2">Subject</label>
+                            <input type="text" name="subject" required 
+                                   class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-white font-medium mb-2">Message</label>
+                            <textarea name="message" rows="5" required 
+                                      class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-white text-gray-900 font-semibold py-3 px-6 rounded-lg hover:bg-blue-100 transition-colors shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-rss text-xl"></i>
+                    </a>
+                </div>
+                <p class="text-gray-400 text-sm">&copy; 2026 Prem Kumar. All rights reserved.</p>
+                <p class="text-gray-500 text-xs mt-2">Built with cloud + DevOps best practices</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-bar');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    skillBars.forEach(bar => {
+                        bar.style.width = bar.style.width || '0%';
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe a parent container that contains all skill bars
+        document.querySelectorAll('#skills .card-hover').forEach(card => {
+            skillObserver.observe(card);
+        });
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            if (name && email && message) {
+                // Simulate form submission
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Thank you for your message! I\'ll get back to you soon.');
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+
+        // Add animation classes for blob elements
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes animate-blob {
+                0% { transform: translate(0px, 0px) scale(1); }
+                33% { transform: translate(30px, -50px) scale(1.1); }
+                66% { transform: translate(-20px, 20px) scale(0.9); }
+                100% { transform: translate(0px, 0px) scale(1); }
+            }
+            .animate-blob {
+                animation: animate-blob 7s infinite;
+            }
+            .animation-delay-2000 { animation-delay: 2s; }
+            .animation-delay-4000 { animation-delay: 4s; }
+        `;
+        document.head.appendChild(style);
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white', 'bg-opacity-95', 'shadow-lg', 'backdrop-blur-sm');
+                nav.classList.remove('glass-effect');
+                document.querySelectorAll('.navbar-link').forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-gray-800');
+                });
+            } else {
+                nav.classList.remove('bg-white', 'bg-opacity-95', 'shadow-lg', 'backdrop-blur-sm');
+                nav.classList.add('glass-effect');
+                document.querySelectorAll('.navbar-link').forEach(link => {
+                    link.classList.remove('text-gray-800');
+                    link.classList.add('text-white');
+                });
+            }
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar-link');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-200', 'border-b-2', 'border-blue-200');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-blue-200', 'border-b-2', 'border-blue-200');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
